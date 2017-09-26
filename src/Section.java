@@ -18,7 +18,7 @@ public class Section {
 
 
 
-    public void addStudent(Object student) {
+    public void addStudent(Student student) {
 
         students.add(student);
 
