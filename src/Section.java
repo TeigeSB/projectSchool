@@ -5,9 +5,28 @@ import java.util.ArrayList;
  */
 public class Section {
 
+    ArrayList<Student> students = new ArrayList<Student>();
     String name = "";
     int maxSize = 20;
-    int currentSize;
-    ArrayList<Student> students = new ArrayList<Student>();
+    int currentSize = students.size();
 
+    public Section (String name, int maxSize, int currentSize, ArrayList<Student> students, Object teacher) {
+
+
+
+    }
+
+
+
+    public void addStudent(Object student) {
+
+        students.add(student);
+
+    }
+
+    public void sectionSeatsRemaining() {
+
+        System.out.println(maxSize - currentSize);
+
+    }
 }
