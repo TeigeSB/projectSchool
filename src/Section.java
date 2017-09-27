@@ -8,11 +8,13 @@ public class Section {
     ArrayList<Person> students = new ArrayList<Person>();
     String name = "";
     int maxSize = 20;
+    Object teacher;
     int currentSize = students.size();
 
     public Section (String name, Object teacher) {
 
-
+        this.name = name;
+        this.teacher = teacher;
 
     }
 
@@ -32,7 +34,8 @@ public class Section {
 
     public void sectionSeatsRemaining() {
 
-        System.out.println(maxSize - currentSize);
+        System.out.println("There are " + students.size() + " students in the class, and " + (maxSize - currentSize) + " spots remaining.");
+
 
     }
 }
