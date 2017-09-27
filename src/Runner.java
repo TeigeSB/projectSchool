@@ -10,7 +10,8 @@ public class Runner {
         Person Eric = new Teacher("Eric", "Ericson", "English");
         Section English = new Section("English", Eric);
         English.addStudent(Micheal);
-        System.out.println(English.currentSize);
+        English.removeStudent(1);
+        System.out.println(English.sectionSeatsRemaining());
 
 
     }

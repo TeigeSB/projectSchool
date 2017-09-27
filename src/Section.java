@@ -23,18 +23,20 @@ public class Section {
     public void addStudent(Person student) {
 
         students.add(student);
+        currentSize = students.size();
 
     }
 
     public void removeStudent(int id) {
 
         students.remove(Student.ID);
+        currentSize = students.size();
 
     }
 
     public void sectionSeatsRemaining() {
 
-        System.out.println("There are " + students.size() + " students in the class, and " + (maxSize - currentSize) + " spots remaining.");
+        System.out.println("There are " + currentSize + " students in the class, and " + (maxSize - currentSize) + " spots remaining.");
 
 
     }
