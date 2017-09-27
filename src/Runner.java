@@ -5,7 +5,11 @@ public class Runner {
 
     public void main (String arg[]) {
 
-
+        Person Micheal = new Student("Micheal", "Johnson", 11);
+        Person Eric = new Teacher("Eric", "Ericson", "English");
+        Section English = new Section("English", Eric);
+        English.addStudent(Micheal);
+        System.out.println(English.currentSize);
 
 
     }

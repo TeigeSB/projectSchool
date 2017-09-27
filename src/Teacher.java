@@ -3,21 +3,23 @@
  */
 public class Teacher extends Person {
 
-    static int ID = 0;
+    static int IDt = 0;
     String firstName = "";
     String lastName = "";
     String subject = "";
 
-    public Teacher(String firstName, String lastName, String subject, int ID) {
+    static void addID() {
 
-        super(firstName, lastName, this.ID);
-        subject = this.subject;
+        IDt += 1;
+        System.out.println(IDt);
 
     }
 
-    static void addID() {
+    public Teacher(String firstName, String lastName, String subject) {
 
-        ID += 1;
+        super(firstName, lastName, IDt);
+
+        subject = this.subject;
 
     }
 

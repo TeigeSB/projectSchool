@@ -5,12 +5,12 @@ import java.util.ArrayList;
  */
 public class Section {
 
-    ArrayList<Student> students = new ArrayList<Student>();
+    ArrayList<Person> students = new ArrayList<Person>();
     String name = "";
     int maxSize = 20;
     int currentSize = students.size();
 
-    public Section (String name, int maxSize, int currentSize, ArrayList<Student> students, Object teacher) {
+    public Section (String name, Object teacher) {
 
 
 
@@ -18,9 +18,15 @@ public class Section {
 
 
 
-    public void addStudent(Student student) {
+    public void addStudent(Person student) {
 
         students.add(student);
+
+    }
+
+    public void removeStudent(int id) {
+
+        students.remove(Student.ID);
 
     }
 
