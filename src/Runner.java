@@ -34,7 +34,7 @@ public class Runner {
                 break;
             default:
                 System.out.println("Nop");
-                break;
+                break;   
 
 
         }
