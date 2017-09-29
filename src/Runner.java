@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Runner {
 
 
-
     public static void main(String arg[]) {
 /*      Person Micheal = new Student("Micheal", "Johnson", 11);
         Person Eric = new Teacher("Eric", "Ericson", "English");
@@ -44,7 +43,7 @@ public class Runner {
 
     String inp = "";
 
-    void parseName(Object Person, String inp) {
+    void parseNameS(boolean teach, String inp) {
 
         String[] arr = {};
 
@@ -52,10 +51,18 @@ public class Runner {
 
         String str1 = arr[0];
         String str2 = arr[1];
-        String str3 = arr[2];
+        int str3 = Integer.valueOf(arr[2]);
 
-        Person str1 =
+        if (!teach) {
+                public Person = new Student(str1, str2, str3);
+                System.out.println("Welcome to school, " + str1 + " " + str2 + "in " + str3 + "grade!");
+        } else {
 
+            String teacher = arr[2];
+            public Person  = new Teacher(str1,str2,teacher);
+            System.out.println("Welcome to school, " +str1+" "+str2+ "teaching " +teacher+ "class!");
+
+        }
     }
 
 }
