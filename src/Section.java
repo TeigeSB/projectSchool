@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class Section {
 
-    ArrayList<Person> students = new ArrayList<Person>();
+    public ArrayList<Person> students = new ArrayList<Person>();
     String name = "";
     int maxSize = 20;
     Object teacher;
