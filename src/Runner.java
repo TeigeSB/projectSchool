@@ -2,29 +2,35 @@
  * Created by h205p2 on 9/26/17.
  */
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Runner {
 
-    String inp = "";
+
+
 
     static void parseName(boolean teach, String inp) {
 
-        String[] arr = {};
+        ArrayList<Student> studentList = new ArrayList<Student>();
+        ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
 
-        arr = inp.split(" ");
-
+        String[] arr = inp.split(" ");
+        System.out.println(inp);
+        System.out.println(Arrays.toString(arr));
         String str1 = arr[0];
-        String str2 = arr[1];
+            String str2 = arr[1];
         int str3 = Integer.valueOf(arr[2]);
+        System.out.println(str2);
+        System.out.println(str3);
 
         if (!teach) {
-            ArrayList<Student> studentList = new ArrayList<Student>();
             studentList.add(new Student(str1, str2, str3));
-            System.out.println("Welcome to school, " + str1 + " " + str2 + "in " + str3 + "grade!");
+            System.out.println("Welcome to school, " + str1 + " " + str2 + " in " + str3 + " grade!");
+            System.out.println(studentList.toString());
         } else {
-            ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
             String teacher = arr[2];
             teacherList.add(new Teacher(str1,str2,teacher));
             System.out.println("Welcome to school, " +str1+" "+str2+ "teaching " +teacher+ "class!");
@@ -44,15 +50,16 @@ public class Runner {
         Scanner scanner = new Scanner(System.in);
 
         String tes = scanner.next();
+        String nextLine = scanner.nextLine();
 
         switch (tes) {
             case "addT":
                 System.out.println("Please enter the Student's first and last name, as well as their grade. (Ex. Michael Johnson 11)");
-                parseName(false, scanner.next());
+                parseName(false, scanner.nextLine());
                 break;
             case "addTeach":
                 System.out.println("Please enter the Teacher's first and last name, as well as the class they teach. (Ex. Eric Ericson English");
-                parseName(true, tes);
+                parseName(true, scanner.nextLine());
                 break;
             case "addC":
                 System.out.println("THIS IS A CLASS");
