@@ -18,7 +18,7 @@ public class Teacher extends Person {
     public Teacher(String firstName, String lastName, String subject) {
 
         super(firstName, lastName, IDt);
-
+        addID();
         subject = this.subject;
 
     }

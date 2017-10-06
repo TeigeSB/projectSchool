@@ -11,29 +11,26 @@ public class Runner {
 
 
 
-
     static void parseName(boolean teach, String inp) {
-
-        ArrayList<Student> studentList = new ArrayList<Student>();
-        ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
 
         String[] arr = inp.split(" ");
         System.out.println(inp);
         System.out.println(Arrays.toString(arr));
         String str1 = arr[0];
-            String str2 = arr[1];
-        int str3 = Integer.valueOf(arr[2]);
-        System.out.println(str2);
-        System.out.println(str3);
-
+        String str2 = arr[1];
+        System.out.println(Person.studentList.toString());
+        System.out.println(Person.teacherList);
         if (!teach) {
-            studentList.add(new Student(str1, str2, str3));
+            int str3 = Integer.valueOf(arr[2]);
+            Person.studentList.add(new Student(str1,str2,str3));
+            System.out.println(Person.studentList.toString());
             System.out.println("Welcome to school, " + str1 + " " + str2 + " in " + str3 + " grade!");
-            System.out.println(studentList.toString());
+
         } else {
             String teacher = arr[2];
-            teacherList.add(new Teacher(str1,str2,teacher));
-            System.out.println("Welcome to school, " +str1+" "+str2+ "teaching " +teacher+ "class!");
+            Person.teacherList.add(new Teacher(str1,str2,teacher));
+            System.out.println("Welcome to school, " +str1+" "+str2+ " teaching " +teacher+ " class!");
+
 
         }
     }
