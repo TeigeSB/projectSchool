@@ -7,14 +7,16 @@ public class Section {
 
     public ArrayList<Person> students = new ArrayList<Person>();
     String name = "";
-    int maxSize = 20;
+    int maxSize;
     Object teacher;
     int currentSize = students.size();
+    static public int count = 0;
 
-    public Section (String name, Object teacher) {
+    public Section (String name, Object teacher, int maxSize) {
 
         this.name = name;
         this.teacher = teacher;
+        this.maxSize = maxSize;
 
     }
 

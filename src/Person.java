@@ -14,17 +14,14 @@ public class Person {
         firstName = this.firstName;
         lastName = this.lastName;
         ID = this.ID;
+        idAdd();
 
     }
 
 
-    public static ArrayList<Student> studentList = new ArrayList<Student>();
-    public static ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
-
     public void idAdd() {
 
         ID += 1;
-        System.out.println(ID);
 
 
     }
