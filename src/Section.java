@@ -10,7 +10,6 @@ public class Section {
     int maxSize;
     Object teacher;
     int currentSize = students.size();
-    static public int count = 0;
 
     public Section (String name, Object teacher, int maxSize) {
 
@@ -31,14 +30,20 @@ public class Section {
 
     public void removeStudent(int id) {
 
-        students.remove(Student.ID);
+        for (int i = 0; i < students.size(); i ++) {
+            if (students.get(i).ID == (id)) {
+
+                students.remove(Student.ID);
+            }
+        }
         currentSize = students.size();
 
     }
 
-    public void sectionSeatsRemaining() {
+    public int sectionSeatsRemaining() {
 
-        System.out.println("There are " + currentSize + " students in the class, and " + (maxSize - currentSize) + " spots remaining.");
+        currentSize = students.size();
+        return (maxSize - currentSize);
 
 
     }
