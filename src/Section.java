@@ -28,10 +28,10 @@ public class Section {
 
     }
 
-    public void removeStudent(int id) {
+    public void removeStudent(String id) {
 
         for (int i = 0; i < students.size(); i ++) {
-            if (students.get(i).ID == (id)) {
+            if (students.get(i).firstName == (id)) {
 
                 students.remove(Student.ID);
             }
