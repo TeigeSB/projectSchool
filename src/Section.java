@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class Section {
 
-    public ArrayList<Person> students = new ArrayList<Person>();
+    public ArrayList<Student> students = new ArrayList<Student>();
     String name = "";
     int maxSize;
     Object teacher;
@@ -21,7 +21,7 @@ public class Section {
 
 
 
-    public void addStudent(Person student) {
+    public void addStudent(Student student) {
 
         students.add(student);
         currentSize = students.size();

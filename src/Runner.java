@@ -2,6 +2,7 @@
  * Created by h205p2 on 9/26/17.
  */
 
+import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.lang.reflect.Array;
@@ -15,7 +16,6 @@ public class Runner {
 
 
     public static ArrayList<Student> studentList = new ArrayList<Student>();
-    public static ArrayList<Teacher> teacherList = new ArrayList<Teacher>();
     public static ArrayList<Section> sectionList = new ArrayList<Section>();
 
 
@@ -25,55 +25,70 @@ public class Runner {
         String str1 = arr[0];
         String str2 = arr[1];
         Scanner ok = new Scanner(System.in);
+
         if (!teach) {
             int str3 = Integer.valueOf(arr[2]);
-            for (int i = 0; i < studentList.size(); i ++) {
 
-                if (studentList.get(i).firstName.equals(str1) && studentList.get(i).lastName.equals(str2)) {
+            if (str3 > 12 || str3 < 1) {
 
-                    System.out.println("Sorry! At this school we like being unique, so only one UNIQUE name is allowed, no duplicates!");
+                System.out.println("Sorry, this is a grade 1 - 12 school. Try again!");
+                parseName(false, ok.nextLine(), section);
+
+            }
+            Student Tes = new Student(str1, str2, str3);
+            for (int l = 0; l < section.students.size(); l++) {
+                if (section.students.get(l).firstName.equals(str1) && section.students.get(l).lastName.equals(str2)) {
+
+                    System.out.println("Sorry! That student is already in this class!");
                     parseName(false, ok.nextLine(), section);
                     return;
 
                 }
-
             }
-            Student Tes = new Student(str1,str2,str3);
+
+            for (int i = 0; i < studentList.size(); i++) {
+                    if (studentList.get(i).firstName.equals(str1) && studentList.get(i).lastName.equals(str2)) {
+
+                        section.addStudent(Tes);
+                        return;
+
+                    }
+            }
+
             studentList.add(Tes);
             section.students.add(Tes);
-
         }
-    }
+        }
+
 
     static Student searchStud (String name) {
 
         String[] arr = name.split(" ");
         String first = arr[0];
         String last = arr[1];
+        int grade = Integer.valueOf(arr[2]);
+
 
         for(int i = 0; i < studentList.size(); i ++) {
 
-            if (studentList.get(i).firstName.equals(first) && studentList.get(i).lastName.equals(last)) {
 
-                System.out.println(studentList.get(i).firstName +  " " + studentList.get(i).lastName);
+            if (studentList.get(i).firstName.equals(first) && studentList.get(i).lastName.equals(last) && studentList.get(i).grade == grade) {
+
+                System.out.println(studentList.get(i).firstName +  " " + studentList.get(i).lastName + " in grade " + studentList.get(i).grade);
 
                 for (int j = 0; j < sectionList.size(); j ++) {
-                    System.out.println("check sectionlist");
+
                     for (int l = 0; l < sectionList.get(j).students.size(); l++) {
-                        System.out.println("check sectionlist students");
-                        if (sectionList.get(j).students.get(l).firstName.equals(first) && sectionList.get(j).students.get(l).lastName.equals(last)) {
+
+                        if (sectionList.get(j).students.get(l).firstName.equals(first) && sectionList.get(j).students.get(l).lastName.equals(last) && sectionList.get(j).students.get(l).grade == grade) {
 
                             System.out.println("This student is in " + sectionList.get(l).name + " with " + sectionList.get(l).teacher + " as their teacher.");
-                            return studentList.get((i));
+
                         }
-
                     }
-
                 }
-                return studentList.get((i));
-
             }
-
+            return studentList.get(i);
         }
 
      return null;
@@ -82,6 +97,20 @@ public class Runner {
     static void addStudents (String inp, Section section) {
 
         int bop = Integer.valueOf(inp);
+        Scanner wow = new Scanner(System.in);
+
+        if (bop > section.maxSize) {
+
+            System.out.println("Sorry, that's more than the max amount of spaces in the class! Try again.");
+            addStudents(wow.nextLine(), section);
+
+        } else if (bop > section.sectionSeatsRemaining()) {
+
+            System.out.println("Sorry, that's more than the amount of seats remaining in the class! Try again.");
+            addStudents(wow.nextLine(), section);
+
+        }
+
         Scanner stin = new Scanner(System.in);
 
         for (int i = 0; i < bop; i++) {
