@@ -189,6 +189,7 @@ public class Runner {
             scanner.nextLine();
 
             switch (tes) {
+
                 case "addSect":
                     System.out.println("Enter name of the Section you would like to make, with the name, the teacher, and the class size. (i.e English Eric Ericson 20)");
                     Section okthen = parseState(scanner.nextLine());
@@ -217,6 +218,7 @@ public class Runner {
                                     frue = false;
                                     break;
                             }
+                         default:
                             break;
                     }
                     break;
@@ -238,11 +240,14 @@ public class Runner {
                             System.out.println("Awesome! How many? (Warning: You will have to type out first name, last, and grade for each student.)");
                             addStudents(scanner.next(), wowok);
                             break;
+                        default:
+                            System.out.println("You typed in something that doesn't work, try again");
+                            break;
 
                     }
 
                 case "findStud":
-                    System.out.println("What's the first and last name of the student that you would like to find? (i.e Michael Johnson)");
+                    System.out.println("What's the first and last name, as well as the grade, of the student that you would like to find? (i.e Michael Johnson 11)");
                     searchStud(scanner.nextLine());
 
                     break;
@@ -254,13 +259,8 @@ public class Runner {
                     System.out.println("That's not a valid command");
                     break;
 
-
             }
-
-
         }
-
-
     }
 }
 
